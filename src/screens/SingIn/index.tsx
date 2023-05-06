@@ -29,7 +29,7 @@ export function SignIn() {
   const navigation = useNavigation();
 
   return (
-    <Container>
+    <Container contentContainerStyle={{ paddingTop: 40, paddingBottom: 60 }}>
       <Header />
       <Title>Acesse</Title>
       <Subtitle>Com e-mail e senha para entrar</Subtitle>
@@ -44,8 +44,13 @@ export function SignIn() {
         <Input placeholder="Digite a sua senha" label="Senha" isPassword />
 
         <ContainerBetween>
-          <Text>Lembrar minha senha</Text>
-          <Text>Esqueci minha senha</Text>
+          <IconButton>
+            <Text>Lembrar minha senha</Text>
+          </IconButton>
+
+          <IconButton onPress={() => navigation.navigate("ForgotPass")}>
+            <Text>Esqueci minha senha</Text>
+          </IconButton>
         </ContainerBetween>
 
         <ContainerBetween>

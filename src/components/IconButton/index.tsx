@@ -5,6 +5,6 @@ type IconButtonProps = TouchableOpacityProps & {
   children: ReactNode;
 };
 
-export function IconButton({ children }: IconButtonProps) {
-  return <TouchableOpacity>{children}</TouchableOpacity>;
+export function IconButton({ children, ...rest }: IconButtonProps) {
+  return <TouchableOpacity {...rest}>{children}</TouchableOpacity>;
 }
