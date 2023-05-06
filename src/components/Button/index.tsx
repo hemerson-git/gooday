@@ -5,16 +5,14 @@ import { ReactNode } from "react";
 type ButtonProps = TouchableOpacityProps & {
   title: string;
   icon?: ReactNode;
+  secondary?: boolean;
 };
 
-export function Button({ title, icon, ...rest }: ButtonProps) {
+export function Button({ title, icon, secondary, ...rest }: ButtonProps) {
   return (
-    <Container
-      {...rest}
-      style={{ justifyContent: icon ? "space-between" : "center" }}
-    >
+    <Container {...rest} $centered={!icon} $secondary={secondary}>
       {icon && <IconContainer>{icon}</IconContainer>}
-      <BtnText>{title}</BtnText>
+      <BtnText $secondary={secondary}>{title}</BtnText>
       {icon && <IconContainer />}
     </Container>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const Container = styled.ScrollView`
-  padding-top: 35px;
+  /* padding-top: 35px; */
   padding-left: 15px;
   padding-right: 15px;
 `;
@@ -22,12 +22,6 @@ export const Subtitle = styled.Text`
 
 export const Form = styled.View`
   gap: 28px;
-`;
-
-export const ContainerBetween = styled.View`
-  gap: 20px;
-  justify-content: space-between;
-  flex-direction: row;
 `;
 
 export const LabelContainer = styled.View`

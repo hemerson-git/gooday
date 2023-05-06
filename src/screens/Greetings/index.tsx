@@ -28,7 +28,7 @@ export function Greetings() {
           onPress={() => navigation.navigate("SignIn")}
         />
 
-        <Button title="Entrar com o Google" />
+        <Button title="Outras formas" secondary />
       </ButtonsContainer>
     </Container>
   );

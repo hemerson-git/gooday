@@ -15,7 +15,7 @@ type Props = TextInputProps & {
 };
 
 export function Input({ label, isPassword, ...rest }: Props) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   function handleToggleVisibility() {
     setIsVisible((prevState) => !prevState);
