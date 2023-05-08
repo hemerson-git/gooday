@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import LottieView, { AnimationObject } from "lottie-react-native";
 
 export const Container = styled.View`
   display: flex;
@@ -31,4 +32,24 @@ export const Footer = styled.View`
 
 export const InputContainer = styled.View`
   gap: 12px;
+`;
+
+export const Animation = styled(LottieView)`
+  width: 120px;
+  height: 120px;
+`;
+
+export const SuccessContainer = styled.View`
+  align-items: center;
+`;
+
+export const SuccessTitle = styled.Text`
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 43.68px;
+  margin-bottom: 50px;
+`;
+
+export const SuccessFooter = styled.View`
+  width: 50%;
 `;
