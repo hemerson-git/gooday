@@ -28,6 +28,10 @@ import { IconButton } from "../../components/IconButton";
 export function SignIn() {
   const navigation = useNavigation();
 
+  function handleAccess() {
+    navigation.navigate("Home");
+  }
+
   return (
     <Container contentContainerStyle={{ paddingTop: 40, paddingBottom: 60 }}>
       <Header />
@@ -54,7 +58,8 @@ export function SignIn() {
         </ContainerBetween>
 
         <ContainerBetween>
-          <Button title="Acessar" />
+          <Button title="Acessar" onPress={handleAccess} />
+
           <Button
             title="Cadastrar"
             secondary

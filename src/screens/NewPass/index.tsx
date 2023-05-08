@@ -32,7 +32,7 @@ export function NewPass() {
   }
 
   function handleGoHome() {
-    navigation.navigate("Home");
+    navigation.navigate("Greetings");
   }
 
   return (
