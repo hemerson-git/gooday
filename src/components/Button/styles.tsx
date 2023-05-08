@@ -1,4 +1,8 @@
-import { TouchableOpacityProps, TextProps } from "react-native";
+import {
+  TouchableOpacityProps,
+  TextProps,
+  ActivityIndicatorProps,
+} from "react-native";
 import styled from "styled-components/native";
 
 type ContainerProps = TouchableOpacityProps & {
@@ -10,10 +14,15 @@ type ButtonTextProps = TextProps & {
   $secondary?: boolean;
 };
 
+type ActivityProps = ActivityIndicatorProps & {
+  $secondary?: boolean;
+};
+
 export const Container = styled.TouchableOpacity<ContainerProps>`
   background-color: ${(props) => (props.$secondary ? "#FFF" : "#14c871")};
   align-items: center;
   justify-content: ${(props) => (props.$centered ? "center" : "space-between")};
+  opacity: ${(props) => (props.disabled ? 0.4 : 1)};
   height: 54px;
   width: auto;
   flex-grow: 100;
@@ -34,4 +43,8 @@ export const BtnText = styled.Text<ButtonTextProps>`
 export const IconContainer = styled.View`
   width: 40px;
   height: 40px;
+`;
+
+export const Spinner = styled.ActivityIndicator<ActivityProps>`
+  color: ${(props) => (props.$secondary ? "#14c871" : "#FFF")};
 `;

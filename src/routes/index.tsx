@@ -6,6 +6,7 @@ import { SignIn } from "../screens/SingIn";
 import { SignUp } from "../screens/SignUp";
 import { ForgotPass } from "../screens/ForgotPass";
 import { Code } from "../screens/Code";
+import { NewPass } from "../screens/NewPass";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -13,6 +14,7 @@ export type RootStackParamList = {
   SignUp: undefined;
   ForgotPass: undefined;
   Code: undefined;
+  NewPass: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,6 +34,7 @@ export function Routes() {
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="ForgotPass" component={ForgotPass} />
       <Stack.Screen name="Code" component={Code} />
+      <Stack.Screen name="NewPass" component={NewPass} />
     </Stack.Navigator>
   );
 }

@@ -1,9 +1,12 @@
 import { Container, Footer, Subtitle, Title } from "./styles";
-import { Input } from "../../components/Input";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
+import { OTPInput } from "../../components/OTPInput";
+import { useNavigation } from "@react-navigation/native";
 
 export function Code() {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Header />
@@ -11,13 +14,13 @@ export function Code() {
       <Title>Código enviado com sucesso!</Title>
       <Subtitle>Insira abaixo o código de validação</Subtitle>
 
-      <Input
-        label="Insira o e-mail ou telefone cadastrado"
-        placeholder="E-mail ou telefone"
-      />
+      <OTPInput size={4} />
 
       <Footer>
-        <Button title="Validar código" />
+        <Button
+          title="Validar código"
+          onPress={() => navigation.navigate("NewPass")}
+        />
       </Footer>
     </Container>
   );
