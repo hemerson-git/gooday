@@ -44,7 +44,7 @@ export const ContentWrapper = styled.View`
   padding-top: 40px;
   padding-right: 36px;
   padding-left: 36px;
-  height: 45%;
+  height: 48%;
 `;
 
 export const Title = styled.Text`
@@ -75,6 +75,16 @@ export const Button = styled.TouchableOpacity`
   height: 84px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 18px;
+`;
+
+export const ButtonSkip = styled.TouchableOpacity``;
+
+export const ButtonSkipText = styled.Text`
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 19px;
+  color: #2e3e4b;
 `;
 
 export const Footer = styled.View`

@@ -1,6 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 import {
   Button,
+  ButtonSkip,
+  ButtonSkipText,
   ContentWrapper,
   Description,
   Footer,
@@ -18,6 +20,7 @@ import Image1 from "../../assets/ob-1.png";
 import Image2 from "../../assets/ob-2.png";
 import Image3 from "../../assets/ob-3.png";
 import Image4 from "../../assets/ob-4.png";
+import PagerView from "react-native-pager-view";
 
 const items = [
   {
@@ -52,11 +55,25 @@ const items = [
 ];
 
 export function OnBoarding() {
+  const onBoardingRef = useRef<null | PagerView>(null);
+  function handleNextPage(index: number) {
+    if (onBoardingRef.current) {
+      if (index + 1 < items.length) {
+        onBoardingRef.current.setPage(index + 1);
+        return;
+      }
+
+      handleSkip();
+    }
+  }
+
+  function handleSkip() {}
+
   return (
     <>
       <Header isFixed secondary />
 
-      <Pager initialPage={0}>
+      <Pager initialPage={0} ref={onBoardingRef}>
         {items.map((item, index) => (
           <Fragment key={`item-${index}`}>
             <Image source={item.image} />
@@ -64,7 +81,10 @@ export function OnBoarding() {
             <ContentWrapper>
               <PagerIndicatorWrapper>
                 {items.map((_indicator, indicatorIndex) => (
-                  <PagerIndicator isActive={indicatorIndex === index} />
+                  <PagerIndicator
+                    isActive={indicatorIndex === index}
+                    key={`indicator-${indicatorIndex}`}
+                  />
                 ))}
               </PagerIndicatorWrapper>
 
@@ -72,9 +92,13 @@ export function OnBoarding() {
               <Description>{item.description}</Description>
 
               <Footer>
-                <Button>
+                <Button onPress={() => handleNextPage(index)}>
                   <Feather name="arrow-right" size={42} color={"white"} />
                 </Button>
+
+                <ButtonSkip>
+                  <ButtonSkipText>Pular</ButtonSkipText>
+                </ButtonSkip>
               </Footer>
             </ContentWrapper>
           </Fragment>
