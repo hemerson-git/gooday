@@ -21,6 +21,7 @@ import Image2 from "../../assets/ob-2.png";
 import Image3 from "../../assets/ob-3.png";
 import Image4 from "../../assets/ob-4.png";
 import PagerView from "react-native-pager-view";
+import { useNavigation } from "@react-navigation/native";
 
 const items = [
   {
@@ -54,8 +55,14 @@ const items = [
   },
 ];
 
-export function OnBoarding() {
+type Props = {
+  onSkip: () => void;
+};
+
+export function OnBoarding({ onSkip }: Props) {
   const onBoardingRef = useRef<null | PagerView>(null);
+  const navigation = useNavigation();
+
   function handleNextPage(index: number) {
     if (onBoardingRef.current) {
       if (index + 1 < items.length) {
@@ -67,7 +74,10 @@ export function OnBoarding() {
     }
   }
 
-  function handleSkip() {}
+  function handleSkip() {
+    onSkip();
+    navigation.navigate("Home");
+  }
 
   return (
     <>
@@ -96,7 +106,7 @@ export function OnBoarding() {
                   <Feather name="arrow-right" size={42} color={"white"} />
                 </Button>
 
-                <ButtonSkip>
+                <ButtonSkip onPress={handleSkip}>
                   <ButtonSkipText>Pular</ButtonSkipText>
                 </ButtonSkip>
               </Footer>

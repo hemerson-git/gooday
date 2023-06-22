@@ -7,19 +7,25 @@ import {
   LocationContextProvider,
 } from "../../contexts/LocationContext";
 import { Locations } from "../../components/Locations";
+import { Stories } from "../../components/Stories";
 
 export function Home() {
-  const [isFirstTimeOnApp, setIsFirstTimeOnApp] = useState(false);
+  const [isFirstTimeOnApp, setIsFirstTimeOnApp] = useState(true);
+
+  function handleSetIsFirstTime() {
+    setIsFirstTimeOnApp(false);
+  }
 
   return (
     <>
       {isFirstTimeOnApp ? (
-        <OnBoarding />
+        <OnBoarding onSkip={handleSetIsFirstTime} />
       ) : (
         <LocationContextProvider>
           <Container>
             <HomeHeader />
             <Locations />
+            <Stories />
           </Container>
         </LocationContextProvider>
       )}

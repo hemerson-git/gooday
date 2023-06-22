@@ -16,12 +16,7 @@ export function Locations() {
       <CityButton>
         <CityButtonText>
           Vitória da Conquista{" "}
-          <Icons
-            name="chevron-down"
-            color="#14C871"
-            size={25}
-            style={{ backgroundColor: "red", alignItems: "center", height: 25 }}
-          />
+          <Icons name="chevron-down" color="#14C871" size={25} />
         </CityButtonText>
       </CityButton>
 
