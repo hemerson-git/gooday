@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Icons from "@expo/vector-icons/Feather";
 
 // SCREENS
 import { Greetings } from "../screens/Greetings";
@@ -10,7 +12,7 @@ import { NewPass } from "../screens/NewPass";
 import { Home } from "../screens/Home";
 
 export type RootStackParamList = {
-  Home: undefined;
+  Tabs: undefined;
   SignIn: undefined;
   SignUp: undefined;
   ForgotPass: undefined;
@@ -19,7 +21,57 @@ export type RootStackParamList = {
   Greetings: undefined;
 };
 
+export type RootTabParamList = {
+  Home: undefined;
+  Search: undefined;
+  Pin: undefined;
+  Favorites: undefined;
+};
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
+
+function Tabs() {
+  return (
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: { borderTopRightRadius: 20 },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => <Icons name="home" />,
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => <Icons name="search" />,
+        }}
+      />
+      <Tab.Screen
+        name="Pin"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => <Icons name="home" />,
+        }}
+      />
+      <Tab.Screen
+        name="Favorites"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => <Icons name="heart" />,
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 export function Routes() {
   return (
@@ -37,7 +89,7 @@ export function Routes() {
       <Stack.Screen name="ForgotPass" component={ForgotPass} />
       <Stack.Screen name="Code" component={Code} />
       <Stack.Screen name="NewPass" component={NewPass} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Tabs" component={Tabs} />
     </Stack.Navigator>
   );
 }

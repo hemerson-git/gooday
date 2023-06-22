@@ -29,7 +29,7 @@ export function SignIn() {
   const navigation = useNavigation();
 
   function handleAccess() {
-    navigation.navigate("Home");
+    navigation.navigate("Tabs");
   }
 
   return (

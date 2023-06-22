@@ -9,12 +9,14 @@ type LocationProviderProps = {
 
 type Props = {
   city: string;
+  temp: number;
 };
 
 export const LocationContext = createContext({} as Props);
 
 export function LocationContextProvider({ children }: LocationProviderProps) {
   const [city, setCity] = useState("");
+  const [temp, setTemp] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -30,12 +32,12 @@ export function LocationContextProvider({ children }: LocationProviderProps) {
       );
 
       setCity(data.results.city);
-      console.log(data.results.temp);
+      setTemp(data.results.temp);
     })();
   }, []);
 
   return (
-    <LocationContext.Provider value={{ city }}>
+    <LocationContext.Provider value={{ city, temp }}>
       {children}
     </LocationContext.Provider>
   );

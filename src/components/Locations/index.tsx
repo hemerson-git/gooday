@@ -9,19 +9,18 @@ import {
 } from "./styles";
 
 export function Locations() {
-  const { city } = useLocation();
+  const { city, temp } = useLocation();
 
   return (
     <Container>
       <CityButton>
         <CityButtonText>
-          Vitória da Conquista{" "}
-          <Icons name="chevron-down" color="#14C871" size={25} />
+          {city} <Icons name="chevron-down" color="#14C871" size={25} />
         </CityButtonText>
       </CityButton>
 
       <WeatherButton>
-        <WeatherButtonText>20º</WeatherButtonText>
+        <WeatherButtonText>{temp}º</WeatherButtonText>
       </WeatherButton>
     </Container>
   );
