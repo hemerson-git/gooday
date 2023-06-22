@@ -10,6 +10,7 @@ import { ForgotPass } from "../screens/ForgotPass";
 import { Code } from "../screens/Code";
 import { NewPass } from "../screens/NewPass";
 import { Home } from "../screens/Home";
+import { Address } from "../screens/Address";
 
 export type RootStackParamList = {
   Tabs: undefined;
@@ -19,6 +20,7 @@ export type RootStackParamList = {
   Code: undefined;
   NewPass: undefined;
   Greetings: undefined;
+  Address: undefined;
 };
 
 export type RootTabParamList = {
@@ -90,6 +92,7 @@ export function Routes() {
       <Stack.Screen name="Code" component={Code} />
       <Stack.Screen name="NewPass" component={NewPass} />
       <Stack.Screen name="Tabs" component={Tabs} />
+      <Stack.Screen name="Address" component={Address} />
     </Stack.Navigator>
   );
 }

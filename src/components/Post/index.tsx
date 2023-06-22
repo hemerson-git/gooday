@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Icons from "@expo/vector-icons/Feather";
 
 import {
@@ -21,6 +22,8 @@ import {
 import InfinityIcon from "../../assets/Infinity";
 
 export function Post() {
+  const [isLiked, setIsLiked] = useState(false);
+
   return (
     <PostContainer>
       <PostHeader>
@@ -78,16 +81,20 @@ export function Post() {
         </PostLikedButton>
 
         <FooterButtonsContainer>
-          <Button>
-            <Icons name="thumbs-up" size={16} />
+          <Button onPress={() => setIsLiked(true)}>
+            <Icons
+              name="thumbs-up"
+              size={16}
+              color={isLiked ? "#14C871" : "#2E3E4B"}
+            />
           </Button>
 
           <Button>
-            <Icons name="message-circle" size={16} />
+            <Icons name="message-circle" size={16} color="#2E3E4B" />
           </Button>
 
           <Button>
-            <Icons name="share-2" size={16} />
+            <Icons name="share-2" size={16} color="#2E3E4B" />
           </Button>
         </FooterButtonsContainer>
       </PostFooter>
